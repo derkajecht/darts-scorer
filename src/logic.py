@@ -110,6 +110,7 @@ class GameLogic:
         """Suggest checkouts based on remaining score"""
         return CHECKOUTS.get(remaining)
 
+    # TODO: break this up into smaller functions so easier to read
     def process_turn(self, score: int) -> str | tuple | None:
         """Main game loop for entering a score"""
         if score > 180:
@@ -231,5 +232,9 @@ if __name__ == "__main__":
         f"Away Remaining: {
             game.away.remaining}, Avg: {
             game.away.get_average()}")
+    print(game.checkout_recs(game.home.remaining))
+    print(game.checkout_recs(game.away.remaining))
+    game.process_turn(166)
+    game.process_turn(166)
     print(game.checkout_recs(game.home.remaining))
     print(game.checkout_recs(game.away.remaining))
